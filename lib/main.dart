@@ -1,6 +1,7 @@
 import 'package:dartnative/dartnative.dart';
 
 import 'dartnative_plugin_registrant.dart';
+import 'variant_screen.dart';
 
 void main() {
   DartNativePluginRegistrant.registerAll();
@@ -26,6 +27,7 @@ class HomeScreen extends StatelessWidget {
             ),
             child: const Text('Open repro screen'),
           ),
+          const VariantLauncher(),
           // Date picker language: the picker follows the device language and
           // there is no `locale` option on showDatePicker.
           TextButton(
