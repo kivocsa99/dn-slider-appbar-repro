@@ -16,10 +16,28 @@ class HomeScreen extends StatelessWidget {
     appBar: AppBar(title: const Text('Repro')),
     backgroundColor: const Color(0xFFFFFFFF),
     body: Center(
-      child: TextButton(
-        onPressed: () =>
-            Navigator.push(context, PageRoute(builder: (_) => const Repro())),
-        child: const Text('Open repro screen'),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextButton(
+            onPressed: () => Navigator.push(
+              context,
+              PageRoute(builder: (_) => const Repro()),
+            ),
+            child: const Text('Open repro screen'),
+          ),
+          // Date picker language: the picker follows the device language and
+          // there is no `locale` option on showDatePicker.
+          TextButton(
+            onPressed: () => showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now(),
+              confirmText: 'حسنا', // app-supplied Arabic text
+            ),
+            child: const Text('Open date picker (confirm text in Arabic)'),
+          ),
+        ],
       ),
     ),
   );
